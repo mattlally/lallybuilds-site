@@ -1,0 +1,33 @@
+/* Curtain intro (home page of themes with "intro" set in build.py). Everything here is gated on html.intro, which the inline
+   script in <head> sets before first paint, so without it the page renders normally. */
+
+.curtain { display: none; }
+html.intro .curtain { display: block; position: fixed; inset: 0; z-index: 900; pointer-events: none; }
+html.intro-lock { overflow: hidden; }
+
+/* 1px wider than half so no hairline shows down the middle at odd viewport widths */
+.curtain__bg { position: absolute; top: 0; bottom: 0; width: calc(50% + 1px); background: var(--accent); }
+.curtain__bg--left { left: 0; }
+.curtain__bg--right { right: 0; }
+
+.curtain__stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.curtain__logo { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--bg); }
+.curtain__head { position: relative; z-index: 1; width: auto; height: clamp(132px, 11.7vw, 168px); }
+
+/* The hidden edge: the name wipes upward out of this box */
+.curtain__mask { overflow: hidden; }
+.curtain__name { font-family: var(--display); font-weight: 500; font-size: clamp(15px, 1.39vw, 20px); line-height: 1; letter-spacing: .15em; margin-right: -.15em; text-transform: uppercase; white-space: nowrap; }
+
+/* The space the nav will slide into, matched to the top of the photo */
+html.intro main { position: relative; }
+html.intro main::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(var(--nav-h) + 1px); background: #030303; }
+
+/* Hold the notes back until the title has landed; adding .notes-in hands them to the normal load-in */
+html.intro .hero:not(.notes-in) .note p { opacity: 0; transform: translateY(8px); transition: none; }
+html.intro .hero:not(.notes-in) .note path { stroke-dashoffset: 1; transition: none; }
+
+/* Title pieces while they animate. The outline sits on each letter so it can move outside the word. */
+.hero__title.is-split .ix { display: inline-block; }
+.hero__title.is-split .mt { filter: none; animation: none; }
+.hero__title.is-split .ix-ch { padding: 0 .06em; margin: 0 -.06em; filter: url(#oboil1); }
+@media (max-width: 760px) { .hero__title.is-split .ix-ch { filter: url(#oboilm1); } }

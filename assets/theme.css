@@ -1,0 +1,24 @@
+:root {
+  --bg: #F0EDE5; --ink: #004643; --muted: #4F716E; --accent: #004643; --on-accent: #F0EDE5;
+  --nav-bg: #F0EDE5; --nav-ink: #004643;
+  --rule: rgba(0,70,67,.14); --rule-strong: rgba(0,70,67,.32); --pill-bg: rgba(255,255,255,.55); --pill-hover: rgba(0,70,67,.08);
+  --field-bg: #F8F6F1; --card-bg: rgba(255,255,255,.55); --code-bg: rgba(0,70,67,.07); --focus-ring: rgba(0,70,67,.18);
+  --build-bg: #004643; --build-ink: #F0EDE5; --build-rule: rgba(240,237,229,.18);
+  --hero-ink: #F0EDE5; --hero-pos: 50% 50%; --scrim: linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 40%); --note-shadow: 0 1px 10px rgba(0,0,0,.5);
+  --display: "Poppins", sans-serif; --display-weight: 600; --title-size: 11.6vw; --title-top: 7%; --title-track: -0.055em;
+  --im-font: "Lora", serif; --im-weight: 500; --im-style: italic; --im-scale: 1;
+  --note-font: "Poppins", sans-serif; --note-weight: 500; --note-size: clamp(15px, 1.35vw, 20px); --note-track: -0.02em;
+  --logo-font: "Poppins", sans-serif; --logo-weight: 600; --logo-size: 22px; --logo-track: -0.05em;
+  --tape-font: "Poppins", sans-serif; --tape-weight: 600;
+}
+.build .btn { --btn-bg: #F0EDE5; --btn-ink: #004643; --btn-border: #F0EDE5; }
+.hero__title .im { letter-spacing: -0.01em; margin: 0 .06em 0 .02em; }
+.build h2 .im, .page h1 .im { letter-spacing: 0; }
+.note--2 { right: 31%; top: 55%; }
+.note--3 { top: 69%; }
+@media (max-width: 760px) {
+  :root { --hero-pos: 47% 50%; } /* Matt's face sits ~2% left of the photo's centre */
+  .note--1 { left: 5%; top: 26%; }
+  .note--2 { right: 4%; top: 33%; }
+  .note--3 { left: 4%; top: 79%; }
+}
